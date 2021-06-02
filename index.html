@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tower of Hanoi - puzzle Games</title>
+	<link rel="icon" href="http://dicson.in/static/favicon.png">
+	<meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+	<meta name="description" content="Tower of Hanoi or Ring Stacking game, The puzzle is to move the entire stack to the second or third rod having simple rules">
+	<meta name="keywords" content="Tower of Hanoi, Ring Stacking, Baby Games, mathematical game, Mini game, puzzle, Javascript Game, dicson widgets, widgets, html Game">
+	<meta name="author" content="dicson.in">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+	<link rel="stylesheet" href="style/main.css">
+	<link rel="canonical" href="http://dicson.in" />
+</head>
+<body>
+	<a class="dicson" href="http://dicson.in"></a>
+	<!-- <a class="github" href="https://github.com/dicson-ui/gooey-loader" ></a> -->
+	<div class="bg"></div>
+	<h1>Tower of Hanoi</h1>
+	<div class="towers">
+		<div class="tower-wrap">
+		  <ul class="tower tower-1"></ul>
+		  <ul class="tower tower-2"></ul>
+		  <ul class="tower tower-3"></ul>
+		</div>
+		<div class="tower-footer">
+			<div class="footer-wrap">
+				<label for="info" class="info"><span>?</span></label>
+				<div class="score-panel"><span class="moves"></span><span>&nbsp;- Moves</span></div>
+				<div class="reset">Reset</div>
+			</div>
+			<input class="check" type="checkbox" id="info" />
+			<div class="info-content">
+				<p>Tower of Hanoi puzzle is to move the entire stack to the second or third rod, obeying the following simple rules:</p>
+				<p><span>1.</span> Only one disk may be moved at a time.</p>
+				<p><span>2.</span> Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack or an empty rod.</p>
+				<p><span>3.</span> No disk may be placed on top of a disk that is smaller than it.</p>
+				<p><span>4.</span> Each move is considerable. Don't waste the move otherwise you are lose the stars.</p>
+			</div>
+			<div class="row-2">
+				<div class="stars">
+					<span>Stars</span>
+					<svg class="star-1" viewBox="0 -10 511.99143 511" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m510.652344 185.882812c-3.371094-10.367187-12.566406-17.707031-23.402344-18.6875l-147.796875-13.417968-58.410156-136.75c-4.3125-10.046875-14.125-16.53125-25.046875-16.53125s-20.738282 6.484375-25.023438 16.53125l-58.410156 136.75-147.820312 13.417968c-10.835938 1-20.011719 8.339844-23.402344 18.6875-3.371094 10.367188-.257813 21.738282 7.9375 28.925782l111.722656 97.964844-32.941406 145.085937c-2.410156 10.667969 1.730468 21.699219 10.582031 28.097656 4.757813 3.457031 10.347656 5.183594 15.957031 5.183594 4.820313 0 9.644532-1.28125 13.953125-3.859375l127.445313-76.203125 127.421875 76.203125c9.347656 5.585938 21.101562 5.074219 29.933593-1.324219 8.851563-6.398437 12.992188-17.429687 10.582032-28.097656l-32.941406-145.085937 111.722656-97.964844c8.191406-7.1875 11.308594-18.535156 7.9375-28.925782zm-252.203125 223.722657"/></svg>
+					<svg class="star-2" viewBox="0 -10 511.99143 511" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m510.652344 185.882812c-3.371094-10.367187-12.566406-17.707031-23.402344-18.6875l-147.796875-13.417968-58.410156-136.75c-4.3125-10.046875-14.125-16.53125-25.046875-16.53125s-20.738282 6.484375-25.023438 16.53125l-58.410156 136.75-147.820312 13.417968c-10.835938 1-20.011719 8.339844-23.402344 18.6875-3.371094 10.367188-.257813 21.738282 7.9375 28.925782l111.722656 97.964844-32.941406 145.085937c-2.410156 10.667969 1.730468 21.699219 10.582031 28.097656 4.757813 3.457031 10.347656 5.183594 15.957031 5.183594 4.820313 0 9.644532-1.28125 13.953125-3.859375l127.445313-76.203125 127.421875 76.203125c9.347656 5.585938 21.101562 5.074219 29.933593-1.324219 8.851563-6.398437 12.992188-17.429687 10.582032-28.097656l-32.941406-145.085937 111.722656-97.964844c8.191406-7.1875 11.308594-18.535156 7.9375-28.925782zm-252.203125 223.722657"/></svg>
+					<svg class="star-3" viewBox="0 -10 511.99143 511" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m510.652344 185.882812c-3.371094-10.367187-12.566406-17.707031-23.402344-18.6875l-147.796875-13.417968-58.410156-136.75c-4.3125-10.046875-14.125-16.53125-25.046875-16.53125s-20.738282 6.484375-25.023438 16.53125l-58.410156 136.75-147.820312 13.417968c-10.835938 1-20.011719 8.339844-23.402344 18.6875-3.371094 10.367188-.257813 21.738282 7.9375 28.925782l111.722656 97.964844-32.941406 145.085937c-2.410156 10.667969 1.730468 21.699219 10.582031 28.097656 4.757813 3.457031 10.347656 5.183594 15.957031 5.183594 4.820313 0 9.644532-1.28125 13.953125-3.859375l127.445313-76.203125 127.421875 76.203125c9.347656 5.585938 21.101562 5.074219 29.933593-1.324219 8.851563-6.398437 12.992188-17.429687 10.582032-28.097656l-32.941406-145.085937 111.722656-97.964844c8.191406-7.1875 11.308594-18.535156 7.9375-28.925782zm-252.203125 223.722657"/></svg>
+				</div>
+				<div class="share">
+					<span>Share</span>
+					<a href=""><img src="./img/facebook.svg" alt="facebook" /></a>
+					<a href=""><img src="./img/twitter.svg" alt="twitter" /></a>
+					<a href=""><img src="./img/linkedin.svg" alt="linkedin" /></a>
+					<a href=""><img src="./img/whatsapp.svg" alt="whatsapp" /></a>
+				</div>
+			</div>
+			<div class="lose-start"></div>
+		</div>
+	</div>
+	<script src="js/main.js"></script>
+</body>
+</html>
