@@ -106,7 +106,6 @@ const towerGame = {
                 createli.setAttribute('data-value', holding);
                 e.appendChild(createli);
                 towerGame.countMove();
-                win = true;
                 if((e.classList.contains('tower-2') || e.classList.contains('tower-3')) && e.childElementCount == tgblockCount) {
                     win = true;
                 } else {
