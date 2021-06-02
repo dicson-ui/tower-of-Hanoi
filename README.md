@@ -1,6 +1,6 @@
 # Tower of Hanoi
 
-Tower of Hanoi the mathematical disk game. [Demo Here](https://dicson-ui.github.io/cube-roller/)
+Tower of Hanoi the mathematical disk game. [Demo Here](https://dicson-ui.github.io/tower-of-hanoi/)
 
 Tower of Hanoi puzzle is to move the entire stack to the second or third rod, obeying the following simple rules:
 
