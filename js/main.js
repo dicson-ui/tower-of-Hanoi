@@ -4,7 +4,7 @@ tgtower2 = document.querySelector('.tower-2'),
 tgtower3 = document.querySelector('.tower-3'),
 audio = document.querySelector('#audio'),
 mute = document.querySelector('.mute'),
-win = false,
+losestart = document.querySelector('.lose-start'),
 holding = null,
 tgblockCount = 7,
 moves = 0;
@@ -36,13 +36,9 @@ const towerGame = {
         e == 0 ? moves= 0 : moves++;
         document.querySelector('.moves').innerHTML = moves;
 
-        let losestart = document.querySelector('.lose-start'),
-        stars1 = document.querySelector('.star-1'),
+        let stars1 = document.querySelector('.star-1'),
         stars2 = document.querySelector('.star-2'),
         stars3 = document.querySelector('.star-3');
-        if(moves < 130 && win) {
-            towerGame.winner(losestart);
-        }
         if(moves > 150) {
             losestart.innerHTML = 'You lose the 1 Star';
             stars3.classList.add('none');
@@ -107,7 +103,7 @@ const towerGame = {
                 e.appendChild(createli);
                 towerGame.countMove();
                 if((e.classList.contains('tower-2') || e.classList.contains('tower-3')) && e.childElementCount == tgblockCount) {
-                    win = true;
+                   towerGame.winner();
                 } else {
                     towerGame.gameAudio(true)
                 }
@@ -127,8 +123,10 @@ const towerGame = {
         towerGame.init('reset');
         document.querySelector('.tower-wrap').classList.remove('disabled');
     },
-    winner: (e) => {
-        e.innerHTML = 'Congratulations! You Won!';
+    winner: () => {
+        if(moves < 130) {
+            losestart.innerHTML = 'Congratulations! You Won!';
+        }
         document.querySelector('.tower-wrap').classList.add('disabled');
     }
 }
