@@ -4,6 +4,7 @@ tgtower2 = document.querySelector('.tower-2'),
 tgtower3 = document.querySelector('.tower-3'),
 audio = document.querySelector('#audio'),
 mute = document.querySelector('.mute'),
+win = false,
 holding = null,
 tgblockCount = 7,
 moves = 0;
@@ -39,9 +40,8 @@ const towerGame = {
         stars1 = document.querySelector('.star-1'),
         stars2 = document.querySelector('.star-2'),
         stars3 = document.querySelector('.star-3');
-        
-        if(moves > 126) {
-            losestart.innerHTML = 'Congratulations! You Won!';
+        if(moves < 130 && win) {
+            towerGame.winner(losestart);
         }
         if(moves > 150) {
             losestart.innerHTML = 'You lose the 1 Star';
@@ -106,8 +106,9 @@ const towerGame = {
                 createli.setAttribute('data-value', holding);
                 e.appendChild(createli);
                 towerGame.countMove();
+                win = true;
                 if((e.classList.contains('tower-2') || e.classList.contains('tower-3')) && e.childElementCount == tgblockCount) {
-                    towerGame.winner(e);
+                    win = true;
                 } else {
                     towerGame.gameAudio(true)
                 }
@@ -125,9 +126,11 @@ const towerGame = {
     },
     reset: () => {
         towerGame.init('reset');
+        document.querySelector('.tower-wrap').classList.remove('disabled');
     },
-        winner: (e) => {
-        console.log('you win!!');
+    winner: (e) => {
+        e.innerHTML = 'Congratulations! You Won!';
+        document.querySelector('.tower-wrap').classList.add('disabled');
     }
 }
 
