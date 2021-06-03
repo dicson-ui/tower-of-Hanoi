@@ -22,7 +22,26 @@ h1 {
     font-size: 25px;
     padding: 0.3em 0.5em;
 }
-
+.you-win {
+	font-size: 60px;
+    color: #fff;
+    position: absolute;
+	left: 0;
+    font-weight: 800;
+    text-align: center;
+    width: 100%;
+	top: 50px;
+	display: none;
+	&.show {
+		display: block;
+		animation: youwin 0.5s cubic-bezier(0.54, 0.38, 0, 1.72);
+		animation-fill-mode: forwards;
+	}
+}
+@keyframes youwin {
+	0% { transform: translateY(-200%); }
+	100% { transform: translateY(0px); }
+}
 .github {
 	position: fixed;
 	right: -44px;
@@ -143,27 +162,6 @@ h1 {
 			img {
 				display: block;
 			}
-			.mute {
-				cursor: pointer;
-				width: 1.2em;
-				position: relative;
-				&.yes {
-					&:after {
-						content: '';
-						position: absolute;
-						left: -15%;
-						top: 49%;
-						width: 140%;
-						height: 2px;
-						background-color: #fff;
-						transform: rotate(31deg);
-					}
-				}
-				img {
-					width: 100%;
-					height: auto;
-				}
-			}
 			a {
 				padding: 0.15em;
 			}
@@ -186,8 +184,30 @@ h1 {
 				span {
 					margin-right: 0.5em;
 				}
+				.mute {
+					cursor: pointer;
+					width: 1.2em;
+					position: relative;
+					margin-right: 1em;
+					&.yes {
+						&:after {
+							content: '';
+							position: absolute;
+							left: -15%;
+							top: 49%;
+							width: 140%;
+							height: 2px;
+							background-color: #fff;
+							transform: rotate(31deg);
+						}
+					}
+					img {
+						width: 100%;
+						height: auto;
+					}
+				}
+				
 			}
-			
 		}
 		.info-content {
 			display: none;
@@ -207,6 +227,9 @@ h1 {
 			text-align: left;
 			p:not(:last-child) {
 				margin-bottom: 0.7em;
+			}
+			@media (max-width: 500px) {
+				font-size: 13px;
 			}
 		}
 		.reset {
@@ -356,6 +379,10 @@ h1 {
 @media (min-width: 700px) {
 	.towers {
 		font-size: 15px;
+	}
+	.you-win {
+		font-size: 75px;
+		top: 20px;
 	}
 }
 @media (min-width: 1500px) {

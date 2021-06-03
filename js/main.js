@@ -122,12 +122,14 @@ const towerGame = {
     reset: () => {
         towerGame.init('reset');
         document.querySelector('.tower-wrap').classList.remove('disabled');
+        document.querySelector('.you-win').classList.remove('show');
     },
     winner: () => {
         if(moves < 130) {
             losestart.innerHTML = 'Congratulations! You Won!';
         }
         document.querySelector('.tower-wrap').classList.add('disabled');
+        document.querySelector('.you-win').classList.add('show');
     }
 }
 
