@@ -16,6 +16,10 @@ const towerGame = {
         tgtower3.innerHTML = "";
         holding = null;
         towerGame.countMove(0);
+        tgtower1.classList.add('first-init');
+        setTimeout(() => {
+            tgtower1.classList.remove('first-init');
+        }, 1600);
         for (let i = 1; i <= tgblockCount; i++) {
             const li = document.createElement('li');
             li.setAttribute('class', `disk disk-${i}`);
@@ -91,16 +95,19 @@ const towerGame = {
         let topBLock = e.lastElementChild,
         topBLockValue = topBLock && topBLock.getAttribute('data-value'),
         holdingBlock = document.querySelector('.hold');
-        towerGame.gameAudio()
+        towerGame.gameAudio();
+        e.classList.remove('next-move');
         if(holdingBlock !== null) {
             if(topBLockValue === holding) {
                 topBLock.classList.remove('hold');
             } else if(topBLockValue == null ||topBLockValue > holding) {
                 holdingBlock.remove();
+                e.setAttribute('data-count', e.childElementCount+1);
                 const createli = document.createElement('li');
                 createli.setAttribute('class', `disk disk-${holding}`);
                 createli.setAttribute('data-value', holding);
                 e.appendChild(createli);
+                e.classList.add('next-move');
                 towerGame.countMove();
                 if((e.classList.contains('tower-2') || e.classList.contains('tower-3')) && e.childElementCount == tgblockCount) {
                    towerGame.winner();
@@ -115,6 +122,7 @@ const towerGame = {
                 }, 300);
             }
         } else if(topBLock !== null) {
+            e.setAttribute('data-count', e.childElementCount);
             topBLock.classList.add('hold');
             holding = topBLockValue;
         }
