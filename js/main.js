@@ -16,6 +16,7 @@ const towerGame = {
         tgtower3.innerHTML = "";
         holding = null;
         towerGame.countMove(0);
+        document.querySelector('#form').classList.add('hide');
         tgtower1.classList.add('first-init');
         setTimeout(() => {
             tgtower1.classList.remove('first-init');
@@ -39,6 +40,8 @@ const towerGame = {
     countMove: (e) => {
         e == 0 ? moves= 0 : moves++;
         document.querySelector('.moves').innerHTML = moves;
+        document.querySelector('#inputMove').value = moves;
+        document.querySelector('#divMove').innerHTML = moves;
 
         let stars1 = document.querySelector('.star-1'),
         stars2 = document.querySelector('.star-2'),
@@ -138,6 +141,7 @@ const towerGame = {
         }
         document.querySelector('.tower-wrap').classList.add('disabled');
         document.querySelector('.you-win').classList.add('show');
+        document.querySelector('#form').classList.remove('hide');
     }
 }
 

@@ -57,8 +57,19 @@
 				<p><span>1.</span> Only one disk may be moved at a time.</p>
 				<p><span>2.</span> Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack or an empty rod.</p>
 				<p><span>3.</span> No disk may be placed on top of a disk that is smaller than it.</p>
-				<p><span>4.</span> Each move is considerable. Don't waste the move otherwise you are lose the stars.</p>
+				<p><span>4.</span> Each move is considerable. Don't waste the move otherwise you lose the stars.</p>
 			</div>
+			<form class="form hide" id="form" action="https://getform.io/f/52345be0-a52d-4d05-8bf0-ce5b98ee31c0" method="POST">
+				<div class="fomr-row">
+					<input class="input" type="text" name="name" placeholder="Name">
+					<input class="input" type="text" name="location" placeholder="Location">
+				</div>
+				<div class="fomr-row">
+					<div class="input">Moves: <span id="divMove"></span></div>
+					<input class="input hide" type="text" name="moves" id="inputMove">
+					<button class="button" type="submit">Send</button>
+				</div>
+			  </form>
 			<div class="row-2">
 				<div class="stars">
 					<span class="mute yes"><img src="./img/audio.svg" width="20" /></span>
