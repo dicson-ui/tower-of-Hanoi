@@ -5,6 +5,7 @@ tgtower3 = document.querySelector('.tower-3'),
 audio = document.querySelector('#audio'),
 mute = document.querySelector('.mute'),
 thanks = document.querySelector('.thanks'),
+form = document.querySelector('#form'),
 losestart = document.querySelector('.lose-start'),
 holding = null,
 tgblockCount = 7,
@@ -17,7 +18,7 @@ const towerGame = {
         tgtower3.innerHTML = "";
         holding = null;
         towerGame.countMove(0);
-        document.querySelector('#form').classList.add('hide');
+        form.classList.add('hide');
         tgtower1.classList.add('first-init');
         setTimeout(() => {
             tgtower1.classList.remove('first-init');
@@ -156,6 +157,10 @@ const towerGame = {
            document.querySelector('input[name="location"]').value
        )
        formData.append(
+           'email',
+           document.querySelector('input[name="email"]').value
+       )
+       formData.append(
            'moves',
            document.querySelector('input[name="moves"]').value
        )
@@ -170,6 +175,7 @@ const towerGame = {
                 setTimeout(() => {
                     thanks.classList.add('hide');
                     towerGame.reset();
+                    form.reset();
                 }, 2000);
            }
        }).catch(error => console.log(error))
@@ -180,5 +186,5 @@ window.addEventListener('DOMContentLoaded', function(e) {
     towerGame.init(tgtower1);
     document.querySelector('.mute').addEventListener('click', (e) => towerGame.mute(e));
     document.querySelector('.reset').addEventListener('click', () => towerGame.reset());
-    document.querySelector('#form').addEventListener('submit', (e) => towerGame.form(e));
+    form.addEventListener('submit', (e) => towerGame.form(e));
 });
