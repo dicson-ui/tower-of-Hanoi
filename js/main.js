@@ -176,10 +176,10 @@ const towerGame = {
        }).then(response => {
            if(response.status == 200) {
                 thanks.classList.remove('hide');
+                form.reset();
                 setTimeout(() => {
                     thanks.classList.add('hide');
                     towerGame.reset();
-                    form.reset();
                 }, 2000);
            }
        }).catch(error => console.log(error))
