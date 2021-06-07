@@ -157,6 +157,10 @@ const towerGame = {
            document.querySelector('input[name="location"]').value
        )
        formData.append(
+           'message',
+           document.querySelector('input[name="message"]').value
+       )
+       formData.append(
            'email',
            document.querySelector('input[name="email"]').value
        )
