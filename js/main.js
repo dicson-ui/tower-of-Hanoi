@@ -4,6 +4,7 @@ tgtower2 = document.querySelector('.tower-2'),
 tgtower3 = document.querySelector('.tower-3'),
 audio = document.querySelector('#audio'),
 mute = document.querySelector('.mute'),
+thanks = document.querySelector('.thanks'),
 losestart = document.querySelector('.lose-start'),
 holding = null,
 tgblockCount = 7,
@@ -142,6 +143,36 @@ const towerGame = {
         document.querySelector('.tower-wrap').classList.add('disabled');
         document.querySelector('.you-win').classList.add('show');
         document.querySelector('#form').classList.remove('hide');
+    },
+    form: (e) => {
+        e.preventDefault()
+       const formData = new FormData();
+       formData.append(
+           'name',
+           document.querySelector('input[name="name"]').value
+       )
+       formData.append(
+           'location',
+           document.querySelector('input[name="location"]').value
+       )
+       formData.append(
+           'moves',
+           document.querySelector('input[name="moves"]').value
+       )
+
+       fetch("https://getform.io/f/52345be0-a52d-4d05-8bf0-ce5b98ee31c0",
+       {
+           method: "POST",
+           body: formData,
+       }).then(response => {
+           if(response.status == 200) {
+                thanks.classList.remove('hide');
+                setTimeout(() => {
+                    thanks.classList.add('hide');
+                    towerGame.reset();
+                }, 2000);
+           }
+       }).catch(error => console.log(error))
     }
 }
 
@@ -149,4 +180,5 @@ window.addEventListener('DOMContentLoaded', function(e) {
     towerGame.init(tgtower1);
     document.querySelector('.mute').addEventListener('click', (e) => towerGame.mute(e));
     document.querySelector('.reset').addEventListener('click', () => towerGame.reset());
+    document.querySelector('#form').addEventListener('submit', (e) => towerGame.form(e));
 });

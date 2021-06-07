@@ -247,6 +247,12 @@ h1 {
   text-align: center;
   text-align: left;
 }
+.towers .tower-footer .form .thanks {
+  text-align: center;
+  color: #0a5d04;
+  padding-top: 16px;
+  font-size: 1.3em;
+}
 .towers .tower-footer .form input:-internal-autofill-selected {
   appearance: menulist-button;
   background-color: rgba(0, 0, 0, 0.77) !important;
@@ -291,6 +297,7 @@ h1 {
   color: #FFF;
 }
 .towers .tower-footer .form .button {
+  cursor: pointer;
   text-align: center;
   display: block;
   background: #97d456;
