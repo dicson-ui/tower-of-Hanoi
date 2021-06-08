@@ -146,43 +146,46 @@ const towerGame = {
         document.querySelector('#form').classList.remove('hide');
     },
     form: (e) => {
-        e.preventDefault()
-       const formData = new FormData();
-       formData.append(
-           'name',
-           document.querySelector('input[name="name"]').value
-       )
-       formData.append(
-           'location',
-           document.querySelector('input[name="location"]').value
-       )
-       formData.append(
-           'message',
-           document.querySelector('input[name="message"]').value
-       )
-       formData.append(
-           'email',
-           document.querySelector('input[name="email"]').value
-       )
-       formData.append(
-           'moves',
-           document.querySelector('input[name="moves"]').value
-       )
+        e.preventDefault();
+        form.classList.add('disabled');
+        const formData = new FormData();
+        formData.append(
+            'name',
+            document.querySelector('input[name="name"]').value
+        )
+        formData.append(
+            'location',
+            document.querySelector('input[name="location"]').value
+        )
+        formData.append(
+            'message',
+            document.querySelector('input[name="message"]').value
+        )
+        formData.append(
+            'email',
+            document.querySelector('input[name="email"]').value
+        )
+        formData.append(
+            'moves',
+            document.querySelector('input[name="moves"]').value
+        )
 
-       fetch("https://getform.io/f/52345be0-a52d-4d05-8bf0-ce5b98ee31c0",
-       {
-           method: "POST",
-           body: formData,
-       }).then(response => {
-           if(response.status == 200) {
-                thanks.classList.remove('hide');
+        fetch("https://getform.io/f/52345be0-a52d-4d05-8bf0-ce5b98ee31c0",
+        {
+            method: "POST",
+            body: formData,
+        }).then(response => {
+            if(response.status == 200) {
                 form.reset();
+                document.querySelector('#divMove').innerHTML = '0';
+                thanks.classList.remove('hide');
                 setTimeout(() => {
                     thanks.classList.add('hide');
                     towerGame.reset();
+                    form.classList.remove('disabled');
                 }, 2000);
-           }
-       }).catch(error => console.log(error))
+            }
+        }).catch(error => console.log(error))
     }
 }
 

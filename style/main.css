@@ -247,6 +247,9 @@ h1 {
   text-align: center;
   text-align: left;
 }
+.towers .tower-footer .form.disabled {
+  pointer-events: none;
+}
 .towers .tower-footer .form .thanks {
   text-align: center;
   color: #0a5d04;
